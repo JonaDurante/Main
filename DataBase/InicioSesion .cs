@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Lucas_Mata
+namespace Lucas_Mata.DataBase
 {
-    public class InicioSesion : DBHandler 
+    public class InicioSesion : DBHandler
     {
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
@@ -13,10 +13,11 @@ namespace Lucas_Mata
             bool respuesta = false;
             try
             {
+                // el ConnectionString se encuientra en DBHandler
                 using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
                 {
                     var query = @"SELECT * FROM Usuario WHERE NombreUsuario = @NombreUsuario and Contraseña = @Contraseña";
-                    
+
                     sqlConnection.Open();
                     using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                     {

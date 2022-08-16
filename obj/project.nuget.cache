@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9JzeNmOANhfT3DFZxXnmhOf5oTNQOB6fINcVU8VQs3X8LpITYGdgcqy7rOuN8xzEh2YomEYKJIyzpRdHskgmLg==",
+  "dgSpecHash": "ocNBZmGJdOopUNTjiNdePvR09CzraUgGx2T5KVLTlcnTL4k5zk2qKAQUZhjER47rFw++xav2m0Qm14NH94n7gA==",
   "success": true,
-  "projectFilePath": "E:\\Repos\\Coder\\TP final 1ra Entrega\\Lucas_Mata.csproj",
+  "projectFilePath": "E:\\Repos\\Coder\\Main\\Lucas_Mata.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jonat\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\jonat\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Repos\\Coder\\TP final 1ra Entrega\\Lucas_Mata.csproj",
+      "projectUniqueName": "E:\\Repos\\Coder\\Main\\Lucas_Mata.csproj",
       "projectName": "Lucas_Mata",
-      "projectPath": "E:\\Repos\\Coder\\TP final 1ra Entrega\\Lucas_Mata.csproj",
+      "projectPath": "E:\\Repos\\Coder\\Main\\Lucas_Mata.csproj",
       "packagesPath": "C:\\Users\\jonat\\.nuget\\packages\\",
-      "outputPath": "E:\\Repos\\Coder\\TP final 1ra Entrega\\obj\\",
+      "outputPath": "E:\\Repos\\Coder\\Main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jonat\\AppData\\Roaming\\NuGet\\NuGet.Config",

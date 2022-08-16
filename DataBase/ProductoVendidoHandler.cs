@@ -1,13 +1,14 @@
-﻿using System.Data.SqlClient;
+﻿using Lucas_Mata.Class;
+using System.Data.SqlClient;
 
-namespace Lucas_Mata
+namespace Lucas_Mata.DataBase
 {
     public class ProductoVendidoHandler : DBHandler
     {
-        public List<ProductoVendido> GetProducto()
+        public List<ProductoVendido> GetProductoVendido()
         {
             List<ProductoVendido> productosVendidos = new List<ProductoVendido>();
-
+            // el ConnectionString se encuientra en DBHandler
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand sqlCommand = new SqlCommand(
@@ -24,10 +25,10 @@ namespace Lucas_Mata
                                 productoVendido.IdVenta = Convert.ToInt32(dataReader["IdVenta"]);
                                 productoVendido.Stock = Convert.ToInt32(dataReader["Stock"]);
                                 productoVendido.IdProducto = Convert.ToInt32(dataReader["IdProducto"]);
-                                productosVendidos.Add (productoVendido);
-                             }                   
+                                productosVendidos.Add(productoVendido);
+                            }
                         }
-                    }   
+                    }
                     sqlConnection.Close();
                 }
             }

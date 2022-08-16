@@ -1,4 +1,4 @@
-﻿namespace Lucas_Mata 
+﻿namespace Lucas_Mata.Class
 {
     public class Producto
     {
@@ -8,6 +8,6 @@
         public double Costo { get; set; }
         public double PrecioVenta { get; set; }
         public int Stock { get; set; }
-        public Usuario IdUsuario { get; set; } 
+        public int IdUsuario { get; set; }
     }
 }
