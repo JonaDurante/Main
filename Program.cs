@@ -7,10 +7,9 @@ namespace Lucas_Mata
         static void Main(string[] args)
         {   
             InicioSesion CheckSesiom = new InicioSesion();
-            CheckSesiom.NombreUsuario = "Lucas666";
-            CheckSesiom.Contraseña = "Lucas1234";
+            var Checkin = CheckSesiom.Sesion("Lucas666", "Lucas1234");
 
-            if (CheckSesiom.Sesion())
+            if (Checkin.Id != 0)
             {
                 ///Usuarios ------------------
                 //Instancia del controlador 
@@ -67,13 +66,20 @@ namespace Lucas_Mata
                 //Instancia del controlador 
                 VentasHandler ventasHandler = new VentasHandler();
                 Console.WriteLine("Ventas: ");
-                //Ejecuto GetUsuario y lo almaceno en Usuario.
-                var Ventas = ventasHandler.GetVentas(1);
-                Console.WriteLine("Id: " + Ventas.Id);
-                Console.WriteLine("Comentarios: " + Ventas.Comentarios);
-                Console.WriteLine("***");
+                //Ejecuto GetVentas y lo almaceno.
+                foreach (var venta in ventasHandler.GetVentas(Usuario.Id))
+                    {
+                    Console.WriteLine("Id: " + venta.Id);
+                    Console.WriteLine("Comentarios: " + venta.Comentarios);
+                    Console.WriteLine("***");
+                    }
                 Console.WriteLine();
             }
+            else
+            {
+                Console.WriteLine(Checkin.Nombre);
+            }
+            Console.ReadLine();
         }
     }
 }
