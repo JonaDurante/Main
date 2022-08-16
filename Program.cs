@@ -24,7 +24,6 @@ namespace Lucas_Mata
                 Console.WriteLine("Nombre de Usuario: " + Usuario.NombreUsuario);
                 Console.WriteLine("Contraseña: " + Usuario.Contraseña);
                 Console.WriteLine("Mail: " + Usuario.Mail);
-                Console.WriteLine("Producto seleccionado:" + Usuario.producto);
                 Console.WriteLine("***");
                 Console.WriteLine();
 
