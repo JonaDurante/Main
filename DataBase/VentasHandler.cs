@@ -6,9 +6,9 @@ namespace Lucas_Mata.DataBase
 {
     public class VentasHandler : DBHandler
     {
-        public Venta GetVentas(int IdUsuario)
+        public List<Venta> GetVentas(int IdUsuario)
         {
-            Venta venta = new Venta();
+            List<Venta> ventas = new List<Venta>();
             // el ConnectionString se encuientra en DBHandler
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
@@ -23,15 +23,17 @@ namespace Lucas_Mata.DataBase
                         {
                             while (dataReader.Read())
                             {
+                                Venta venta = new Venta();
                                 venta.Id = Convert.ToInt32(dataReader["Id"]);
                                 venta.Comentarios = dataReader["Comentarios"].ToString();
+                                ventas.Add(venta);
                             }
                         }
                     }
                     sqlConnection.Close();
                 }
             }
-            return venta;
+            return ventas;
         }
     }
 }

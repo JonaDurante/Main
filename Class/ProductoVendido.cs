@@ -9,5 +9,10 @@ namespace Lucas_Mata.Class
         public int IdVenta { get; set; }
         public Producto IdProducto { get; set; }
 
+        public ProductoVendido()
+        {
+            Producto producto = new Producto();
+            IdProducto = producto;
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Lucas_Mata.DataBase
             // el ConnectionString se encuientra en DBHandler
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
-                var query = "SELECT * FROM Usuario where NombreUsuario = @Nombre";
+                var query = "SELECT * FROM Usuario where NombreUsuario = @NombreUsuario";
                 using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                 {
                     sqlConnection.Open();

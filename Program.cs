@@ -17,7 +17,7 @@ namespace Lucas_Mata
                 UsuarioHandler usuarioHandler = new UsuarioHandler();
                 Console.WriteLine("Usuarios: ");
                 //Ejecuto GetUsuario y lo almaceno en Usuario.
-                var Usuario = usuarioHandler.GetUsuario("Tobias");
+                var Usuario = usuarioHandler.GetUsuario("tcasazza");
                 //Muestro Usuario
                 Console.WriteLine("Id: " + Usuario.Id);
                 Console.WriteLine("Nombre: " + Usuario.Nombre);
@@ -54,7 +54,11 @@ namespace Lucas_Mata
                 {
                     Console.WriteLine("Stock: " + item.Stock);
                     Console.WriteLine("Id Venta:" + item.IdVenta);
-                    Console.WriteLine("Id Producto: " + item.IdProducto);
+                    Console.WriteLine("Id Producto: " + item.IdProducto.Id);
+                    Console.WriteLine("Descripción: " + item.IdProducto.Descripcion);
+                    Console.WriteLine("Costo: $" + item.IdProducto.Costo);
+                    Console.WriteLine("Precio de Venta: $" + item.IdProducto.PrecioVenta);
+                    Console.WriteLine("Stock restante: " + item.IdProducto.Stock);
                     Console.WriteLine("***");
                 }
                 Console.ReadLine();

@@ -23,7 +23,7 @@ namespace Lucas_Mata.DataBase
 
                     var query = "SELECT PV.id, PV.Stock, PV.IdVenta FROM ProductoVendido as PV " +
                                 "INNER JOIN Producto as Pro on Pro.id = PV.IdProducto " +
-                                "WHERE Pro.IdUsuario = @Id";
+                                "WHERE Pro.Id = @Id";
 
                     using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                     {
