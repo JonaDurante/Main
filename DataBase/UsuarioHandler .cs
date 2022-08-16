@@ -6,17 +6,17 @@ namespace Lucas_Mata.DataBase
 {
     public class UsuarioHandler : DBHandler
     {
-        public Usuario GetUsuario(string Nombre)
+        public Usuario GetUsuario(string NombreUsuario)
         {
             Usuario usuario = new Usuario();
             // el ConnectionString se encuientra en DBHandler
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
-                var query = "SELECT * FROM Usuario where Nombre = @Nombre";
+                var query = "SELECT * FROM Usuario where NombreUsuario = @Nombre";
                 using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                 {
                     sqlConnection.Open();
-                    sqlCommand.Parameters.Add(new SqlParameter("NombreUsuario", SqlDbType.VarChar) { Value = Nombre });
+                    sqlCommand.Parameters.Add(new SqlParameter("NombreUsuario", SqlDbType.VarChar) { Value = NombreUsuario });
                     using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
                     {
                         if (dataReader.HasRows)

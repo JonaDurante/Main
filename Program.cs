@@ -34,15 +34,15 @@ namespace Lucas_Mata
                 ProductoHandler productoHandler = new ProductoHandler();
                 Console.WriteLine("Productos: ");
                 //Ejecuto GetProducto y lo almaceno en Usuario.
-                foreach (var Producto in productoHandler.GetProducto(Usuario.Id))
+                foreach (var producto in productoHandler.GetProducto(Usuario.Id))
                 {
                     //Muestro Producto
-                    Console.WriteLine("Id: " + Producto.Id);
-                    Console.WriteLine("Descripción: " + Producto.Descripcion);
-                    Console.WriteLine("Costo: $" + Producto.Costo);
-                    Console.WriteLine("Precio de venta: $" + Producto.PrecioVenta);
-                    Console.WriteLine("Stock: " + Producto.Stock);
-                    Console.WriteLine("Id Usuario: " + Producto.IdUsuario);
+                    Console.WriteLine("Id: " + producto.Id);
+                    Console.WriteLine("Descripción: " + producto.Descripcion);
+                    Console.WriteLine("Costo: $" + producto.Costo);
+                    Console.WriteLine("Precio de venta: $" + producto.PrecioVenta);
+                    Console.WriteLine("Stock: " + producto.Stock);
+                    Console.WriteLine("Id Usuario: " + producto.IdUsuario);
                     Console.WriteLine("***");
                     Console.WriteLine();
                 }
@@ -50,7 +50,7 @@ namespace Lucas_Mata
                 //Producto Vendido
                 ProductosVendidosHandler productoVendidoHandler = new ProductosVendidosHandler();
                 Console.WriteLine("Productos Vendidos: ");
-                foreach (var item in productoVendidoHandler.GetProductoVendido(Producto.IdUsuario))
+                foreach (var item in productoVendidoHandler.GetProductoVendido(Usuario.Id))
                 {
                     Console.WriteLine("Stock: " + item.Stock);
                     Console.WriteLine("Id Venta:" + item.IdVenta);

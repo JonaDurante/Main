@@ -21,7 +21,7 @@ namespace Lucas_Mata.DataBase
                 foreach (var producto in productoHandler.GetProducto(IdUsuario))
                 {
 
-                    var query = "SELECT PV.id, PV.Stock, PV.IdProducto, PV.IdVenta FROM ProductoVendido as PV " +
+                    var query = "SELECT PV.id, PV.Stock, PV.IdVenta FROM ProductoVendido as PV " +
                                 "INNER JOIN Producto as Pro on Pro.id = PV.IdProducto " +
                                 "WHERE Pro.IdUsuario = @Id";
 
@@ -36,7 +36,6 @@ namespace Lucas_Mata.DataBase
                                 while (dataReader.Read())
                                 {
                                     ProductoVendido productoVendido = new ProductoVendido();
-
                                     productoVendido.Id = Convert.ToInt32(dataReader["Id"]);
                                     productoVendido.IdVenta = Convert.ToInt32(dataReader["IdVenta"]);
                                     productoVendido.Stock = Convert.ToInt32(dataReader["Stock"]);
