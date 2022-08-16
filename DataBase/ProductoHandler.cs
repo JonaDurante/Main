@@ -6,9 +6,9 @@ namespace Lucas_Mata.DataBase
 {
     public class ProductoHandler : DBHandler
     {
-        public Producto GetProducto(int IdUsuario)
+        public List<Producto> GetProducto(int IdUsuario)
         {
-            Producto producto = new Producto();
+            List<Producto> productos = new List<Producto>();
 
             // el ConnectionString se encuientra en DBHandler
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
@@ -25,19 +25,21 @@ namespace Lucas_Mata.DataBase
                         {
                             while (dataReader.Read())
                             {
+                                Producto producto = new Producto();
                                 producto.Id = Convert.ToInt32(dataReader["ID"]);
                                 producto.Descripcion = dataReader["Descripciones"].ToString();
                                 producto.Costo = Convert.ToDouble(dataReader["Costo"]);
                                 producto.PrecioVenta = Convert.ToDouble(dataReader["PrecioVenta"]);
                                 producto.Stock = Convert.ToInt32(dataReader["Stock"]);
                                 producto.IdUsuario = Convert.ToInt32(dataReader["IdUsuario"]);
+                                productos.Add(producto);
                             }
                         }
                     }
                     sqlConnection.Close();
                 }
             }
-            return producto;
+            return productos;
         }
     }
 }
