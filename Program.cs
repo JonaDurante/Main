@@ -5,7 +5,7 @@ namespace Lucas_Mata
     class Program
     {
         static void Main(string[] args)
-        {   
+        {
             InicioSesion CheckSesiom = new InicioSesion();
             var Checkin = CheckSesiom.Sesion("Lucas666", "Lucas1234");
 
@@ -45,21 +45,21 @@ namespace Lucas_Mata
                     Console.WriteLine();
                 }
 
-                //Producto Vendido
-                ProductosVendidosHandler productoVendidoHandler = new ProductosVendidosHandler();
-                Console.WriteLine("Productos Vendidos: ");
-                foreach (var item in productoVendidoHandler.GetProductoVendido(Usuario.Id))
-                {
-                    Console.WriteLine("Stock: " + item.Stock);
-                    Console.WriteLine("Id Venta:" + item.IdVenta);
-                    Console.WriteLine("Id Producto: " + item.IdProducto.Id);
-                    Console.WriteLine("Descripción: " + item.IdProducto.Descripcion);
-                    Console.WriteLine("Costo: $" + item.IdProducto.Costo);
-                    Console.WriteLine("Precio de Venta: $" + item.IdProducto.PrecioVenta);
-                    Console.WriteLine("Stock restante: " + item.IdProducto.Stock);
-                    Console.WriteLine("***");
-                }
-                Console.ReadLine();
+                ////Producto Vendido
+                //ProductosVendidosHandler productoVendidoHandler = new ProductosVendidosHandler();
+                //Console.WriteLine("Productos Vendidos: ");
+                //foreach (var item in productoVendidoHandler.GetProductoVendido(Usuario.Id))
+                //{
+                //    Console.WriteLine("Stock: " + item.Stock);
+                //    Console.WriteLine("Id Venta:" + item.IdVenta);
+                //    Console.WriteLine("Id Producto: " + item.IdProducto.Id);
+                //    Console.WriteLine("Descripción: " + item.IdProducto.Descripcion);
+                //    Console.WriteLine("Costo: $" + item.IdProducto.Costo);
+                //    Console.WriteLine("Precio de Venta: $" + item.IdProducto.PrecioVenta);
+                //    Console.WriteLine("Stock restante: " + item.IdProducto.Stock);
+                //    Console.WriteLine("***");
+                //}
+                //Console.ReadLine();
 
                 //Venta ------------------
                 //Instancia del controlador 
@@ -67,11 +67,11 @@ namespace Lucas_Mata
                 Console.WriteLine("Ventas: ");
                 //Ejecuto GetVentas y lo almaceno.
                 foreach (var venta in ventasHandler.GetVentas(Usuario.Id))
-                    {
+                {
                     Console.WriteLine("Id: " + venta.Id);
                     Console.WriteLine("Comentarios: " + venta.Comentarios);
                     Console.WriteLine("***");
-                    }
+                }
                 Console.WriteLine();
             }
             else

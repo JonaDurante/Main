@@ -8,32 +8,14 @@ namespace Lucas_Mata.DataBase
     {
         public List<Venta> GetVentas(int IdUsuario)
         {
-            List<Venta> ventas = new List<Venta>();
-            // el ConnectionString se encuientra en DBHandler
-            using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
-            {
-                var query = "SELECT * FROM Venta WHERE IdUsuario = @IdUsuario";
-                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
-                {
-                    sqlConnection.Open();
-                    sqlCommand.Parameters.Add(new SqlParameter("IdUsuario", SqlDbType.BigInt) { Value = IdUsuario });
-                    using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
-                    {
-                        if (dataReader.HasRows)
-                        {
-                            while (dataReader.Read())
-                            {
-                                Venta venta = new Venta();
-                                venta.Id = Convert.ToInt32(dataReader["Id"]);
-                                venta.Comentarios = dataReader["Comentarios"].ToString();
-                                ventas.Add(venta);
-                            }
-                        }
-                    }
-                    sqlConnection.Close();
-                }
-            }
-            return ventas;
+            VentasMapper ventasMapper = new VentasMapper();
+            var query = "SELECT V.Id, V.Comentarios FROM Venta as V " +
+                "inner join ProductoVendido as PV on PV.IdVenta = V.Id " +
+                "inner join Producto as P on PV.IdProducto = P.Id " +
+                "WHERE P.IdUsuario = @IdUsuario";
+            var sqlParamenter = new SqlParameter("IdUsuario", SqlDbType.BigInt) { Value = IdUsuario };
+            var V = DBHandler.Execute(query, sqlParamenter, ventasMapper);
+            return (List<Venta>)V;
         }
     }
 }

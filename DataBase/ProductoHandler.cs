@@ -8,38 +8,12 @@ namespace Lucas_Mata.DataBase
     {
         public List<Producto> GetProducto(int IdUsuario)
         {
-            List<Producto> productos = new List<Producto>();
+            ProductoMapper productoMapper = new ProductoMapper();   
+            var query = "SELECT * FROM Producto WHERE IdUsuario = @IdUsuario";
+            var sqlParamenter = new SqlParameter("IdUsuario", SqlDbType.BigInt) { Value = IdUsuario };
+            var P = DBHandler.Execute(query, sqlParamenter, productoMapper);
+            return (List<Producto>)P;
 
-            // el ConnectionString se encuientra en DBHandler
-            using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
-            {
-                var query = "SELECT * FROM Producto WHERE IdUsuario = @IdUsuario";
-                using (SqlCommand sqlCommand = new SqlCommand(
-                    query, sqlConnection))
-                {
-                    sqlConnection.Open();
-                    sqlCommand.Parameters.Add(new SqlParameter("IdUsuario", SqlDbType.BigInt) { Value = IdUsuario });
-                    using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
-                    {
-                        if (dataReader.HasRows)
-                        {
-                            while (dataReader.Read())
-                            {
-                                Producto producto = new Producto();
-                                producto.Id = Convert.ToInt32(dataReader["ID"]);
-                                producto.Descripcion = dataReader["Descripciones"].ToString();
-                                producto.Costo = Convert.ToDouble(dataReader["Costo"]);
-                                producto.PrecioVenta = Convert.ToDouble(dataReader["PrecioVenta"]);
-                                producto.Stock = Convert.ToInt32(dataReader["Stock"]);
-                                producto.IdUsuario = Convert.ToInt32(dataReader["IdUsuario"]);
-                                productos.Add(producto);
-                            }
-                        }
-                    }
-                    sqlConnection.Close();
-                }
-            }
-            return productos;
         }
     }
 }
