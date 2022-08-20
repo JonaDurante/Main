@@ -1,5 +1,6 @@
-﻿using Lucas_Mata.Class;
-using System.Data;
+﻿using System.Data;
+using Lucas_Mata.Class;
+using Lucas_Mata.Mappers;
 using System.Data.SqlClient;
 
 namespace Lucas_Mata.DataBase
